@@ -33,22 +33,22 @@ if (language) {
 }
 
 if (language === 'en') {
-	console.log(week[0]);
+	console.log(week[0].join(', '));
 } else if (language === 'ru') {
-	console.log(week[1]);
+	console.log(week[1].join(', '));
 }
 
 switch (language) {
 	case 'en':
-		console.log(week[0]);
+		console.log(week[0].join(', '));
 		break;
 		
 		case 'ru':
-			console.log(week[1]);
+			console.log(week[1].join(', '));
 			break;
 		}
 
-let resultOne = language === 'en' ? week[0] : week[1];
+let resultOne = language === 'en' ? week[0].join(', ') : week[1].join(', ');
 console.log('resultOne: ', resultOne);
 
 
