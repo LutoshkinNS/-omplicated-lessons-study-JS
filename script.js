@@ -59,19 +59,19 @@ let y = 0,
 
 let keydown = document.addEventListener('keydown', function (event) {
 	if (event.code === 'ArrowUp') {
-		element.style.top = y + 'px';
 		y -= 10;
+		element.style.top = y + 'px';
 	} else 
 		if (event.code === 'ArrowDown') {
-			element.style.top = y + 'px';
 			y += 10;
+			element.style.top = y + 'px';
 		} else
 			if (event.code === 'ArrowLeft') {
-				element.style.left = x + 'px';
 				x -= 10;
+				element.style.left = x + 'px';
 			} else
 				if (event.code === 'ArrowRight') {
-					element.style.left = x + 'px';
 					x += 10;
+					element.style.left = x + 'px';
 				};
 });
