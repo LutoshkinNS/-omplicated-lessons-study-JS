@@ -5,9 +5,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		form {
+			margin: 0 auto;
+
+			width: 400px;
+			padding: 20px;
+		}
+
+		fieldset {
+			padding: 20px;
+			border: 1px solid #CCC;
+			border-radius: 20px;
+		}
+	</style>
 </head>
 
 <body>
+
+	<form action="/my-handling-form-page" method="post">
+		<fieldset>
+			<legend>Вввод данных</legend>
+			<label for="input">Input:</label>
+			<input type="text" id="input" class="input">
+			<p class="content">></p>
+		</fieldset>
+	</form>
 
 	<script src="script.js"></script>
 </body>
