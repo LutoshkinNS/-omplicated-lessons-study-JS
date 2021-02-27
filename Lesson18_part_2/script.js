@@ -1,20 +1,42 @@
-function debounce(f, t) {
-	return function() {
-		const previousCall = this.lastCall;
-		this.lastCall = Date.now();
-		if (previousCall && ((this.lastCall - previousCall) <= t)) {
-			clearTimeout(this.lastCallTimer);
-		}
-		this.lastCallTimer = setTimeout(f, t);
-	};
-}
+const box = document.querySelector('.box'),
+	timer = document.querySelector('.timer'),
+	pause = document.querySelector('.pause'),
+	reset = document.querySelector('.reset');
+let animate = false,
+	animation,
+	count = Number(timer.textContent);
 
-const input = document.querySelector('.input'),
-	content = document.querySelector('.content');
-
-const write = () => {
-	content.textContent = '>' + input.value;
+const timerAnimation = () => {
+	animation = requestAnimationFrame(timerAnimation);
+	console.log(count);
+	count--;
+	if (count >= 500) {
+		timer.textContent = count;
+		box.style.borderRadius = 100 - (count / 10) + '%';
+	} else if (count >= 0 && count < 500) {
+		timer.textContent = count;
+		box.style.borderRadius = 0 + (count / 10) + '%';
+		return;
+	} else {
+		cancelAnimationFrame(animation);
+	}
 };
 
-input.addEventListener('input', debounce(write, 300));
+pause.addEventListener('click', () => {
+	if (!animate) {
+		pause.textContent = 'Пауза';
+		animation = requestAnimationFrame(timerAnimation);
+		animate = true;
+	} else {
+		pause.textContent = 'Старт';
+		cancelAnimationFrame(animation);
+		animate = false;
+	}
+});
 
+reset.addEventListener('click', () => {
+	box.style.borderRadius = 0;
+	count = 1000;
+	timer.textContent = count;
+	pause.textContent = 'Старт';
+});
